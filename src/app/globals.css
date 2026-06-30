@@ -1,26 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+  body.dark {
+    @apply bg-zinc-950 text-zinc-50;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.review-swipe-track {
+  animation: review-swipe-left-to-right 24s linear infinite;
+  will-change: transform;
+}
+
+.review-swipe-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes review-swipe-left-to-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* গ্লাস-মরফিজম এফেক্ট নেভবারের জন্য */
+.glass-nav {
+  @apply bg-white/75 dark:bg-zinc-950/75 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800/80;
 }
