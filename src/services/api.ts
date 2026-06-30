@@ -13,7 +13,9 @@ export interface ProductFilters {
 }
 
 const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api",
+  baseURL:
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://adnoviq-backaend.vercel.app/api",
   timeout: 10_000,
 });
 
